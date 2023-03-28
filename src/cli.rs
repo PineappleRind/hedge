@@ -1,6 +1,6 @@
 use std::str::FromStr;
 
-use bpaf::*;
+use bpaf::{construct, short, OptionParser, Parser};
 
 #[allow(dead_code)]
 #[derive(Debug)]

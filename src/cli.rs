@@ -34,7 +34,7 @@ impl FromStr for BoxType {
 pub fn get_args() -> OptionParser<HedgeOptions> {
     let box_type = short('t')
         .long("type")
-        .help("Type of box")
+        .help("Type of box (one of solid, solid_round)")
         .argument::<BoxType>("TYPE");
 
     let width = short('w')

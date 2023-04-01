@@ -22,6 +22,7 @@ Available options:
 ## spec
 
 > note: the current state of the code cannot do all the things this outlines
+>
 > <i><small>(is spec the right word?)</small></i>
 
 Let's say we want this result:
@@ -51,21 +52,21 @@ This gives a result of:
 
 2. **Center the text.** For each row, determine how many spaces to pad the row with, and pad it.
    For `lorem ipsum`, this'll look like: - its length is 11, and `width` (specified width) is 24; therefore its "negative space" is 13 - since 13 does not divide into two equal parts, `ceil` 13 / 2 (more spaces than necessary) - pad the left with 7 and the right with 7
-3. Go row by row and column by column through `0..=height` and `0..=width`, respectively. Add a character to the box, depending on one of these cases (evaluated in the order shown).
+3. Go row by row and column by column through `0..=height` and `0..=width`. Add a character to the box, depending on one of these cases (evaluated in the order shown).
 
-#### Corners
+   #### Corners
 
-- If the row is 0 (top), and the column is 0 (left), `┌`
-- If the row is 0 (top), and the column is `width` (right), `┐`
-- If the row is `height` (bottom), and the column is 0 (left), `└`
-- If the row is `height` (bottom), and the column is `width` (right), `┘`
+   - If the row is 0 (top), and the column is 0 (left), `┌`
+   - If the row is 0 (top), and the column is `width` (right), `┐`
+   - If the row is `height` (bottom), and the column is 0 (left), `└`
+   - If the row is `height` (bottom), and the column is `width` (right), `┘`
 
-#### Edges
+   #### Edges
 
-- If the row is 0 (top) or `height` (bottom), `─`
-- If the column is 0 (left) or `width` (right), `│`
+   - If the row is 0 (top) or `height` (bottom), `─`
+   - If the column is 0 (left) or `width` (right), `│`
 
-#### Text & spaces
+   #### Text & spaces
 
-- Get the current character in the current row of the wrapped text
-- Use that character, or a blank space if there isn't one
+   - Get the current character in the current row of the wrapped text
+   - Use that character, or a blank space if there isn't one

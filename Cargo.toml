@@ -7,3 +7,4 @@ edition = "2021"
 
 [dependencies]
 bpaf = "0.7.10"
+textwrap = "0.16.0"

@@ -2,16 +2,15 @@
 // │           welcome to Hedge            │
 // └───────────────────────────────────────┘
 
-
+pub mod box_types;
 pub mod cli;
 pub mod hedge;
-pub mod box_types;
 
 fn main() {
     let options = cli::get_args().run();
 
     let boxed = wrap_in_box(
-        "look! text wraps (with no padding)",
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris neque sem, dignissim ut augue non, porta porttitor lacus. Vestibulum pharetra elit quis justo tempus dapibus.",
         &options.box_type,
         options.width,
         options.height,

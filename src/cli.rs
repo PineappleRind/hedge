@@ -60,5 +60,5 @@ pub fn get_args() -> OptionParser<HedgeOptions> {
         // round
     })
     .to_options()
-    .descr("Wrap text in boxes")
+    .descr("Wrap text in ASCII boxes")
 }

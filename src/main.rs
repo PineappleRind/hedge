@@ -5,6 +5,7 @@
 
 pub mod cli;
 pub mod hedge;
+pub mod box_types;
 
 fn main() {
     let options = cli::get_args().run();

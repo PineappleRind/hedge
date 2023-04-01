@@ -14,6 +14,7 @@ pub struct HedgeOptions {
 #[derive(Debug, Eq, PartialEq, Hash)]
 pub enum BoxType {
     Solid,
+    SolidRound,
 }
 
 impl FromStr for BoxType {
@@ -24,6 +25,7 @@ impl FromStr for BoxType {
     {
         match s {
             "solid" => Ok(BoxType::Solid),
+            "solid_round" => Ok(BoxType::SolidRound),
             _ => Err("Expected solid".to_string()),
         }
     }

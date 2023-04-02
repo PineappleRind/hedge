@@ -3,12 +3,12 @@ use std::collections::HashMap;
 use crate::cli::BoxType;
 
 pub struct BoxChars {
-    pub corner_nw: String,
-    pub corner_ne: String,
-    pub corner_sw: String,
-    pub corner_se: String,
-    pub edge_x: String,
-    pub edge_y: String,
+    pub corner_nw: char,
+    pub corner_ne: char,
+    pub corner_sw: char,
+    pub corner_se: char,
+    pub edge_x: char,
+    pub edge_y: char,
 }
 
 pub fn chars_for_type(box_type: &BoxType) -> BoxChars {
@@ -16,31 +16,31 @@ pub fn chars_for_type(box_type: &BoxType) -> BoxChars {
         (
             "solid",
             BoxChars {
-                corner_nw: "┌".to_string(),
-                corner_ne: "┐".to_string(),
-                corner_sw: "└".to_string(),
-                corner_se: "┘".to_string(),
-                edge_x: "│".to_string(),
-                edge_y: "─".to_string(),
+                corner_nw: '┌',
+                corner_ne: '┐',
+                corner_sw: '└',
+                corner_se: '┘',
+                edge_x: '│',
+                edge_y: '─',
             },
         ),
         (
             "solid_round",
             BoxChars {
-                corner_nw: "╭".to_string(),
-                corner_ne: "╮".to_string(),
-                corner_sw: "╰".to_string(),
-                corner_se: "╯".to_string(),
-                edge_x: "│".to_string(),
-                edge_y: "─".to_string(),
+                corner_nw: '╭',
+                corner_ne: '╮',
+                corner_sw: '╰',
+                corner_se: '╯',
+                edge_x: '│',
+                edge_y: '─',
             },
         ),
     ]);
 
     let box_type = match box_type {
-        BoxType::Solid => "solid".to_string(),
-        BoxType::SolidRound => "solid_round".to_string(),
+        BoxType::Solid => "solid",
+        BoxType::SolidRound => "solid_round",
     };
 
-    chars.remove(box_type.as_str()).unwrap()
+    chars.remove(box_type).unwrap()
 }

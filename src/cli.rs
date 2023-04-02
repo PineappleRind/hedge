@@ -6,9 +6,9 @@ use bpaf::{construct, short, OptionParser, Parser};
 #[derive(Debug)]
 pub struct HedgeOptions {
     pub box_type: BoxType,
-    pub width: u32,
-    pub height: u32,
-    // pub round: bool,
+    pub width: usize,
+    pub height: usize,
+    pub padding: usize,
 }
 
 #[derive(Debug, Eq, PartialEq, Hash)]
@@ -39,25 +39,25 @@ pub fn get_args() -> OptionParser<HedgeOptions> {
 
     let width = short('w')
         .long("width")
-        .help("Width of box (defaults to auto)")
-        .argument::<u32>("INT");
+        .help("Width of box, defaults to 0 (auto)")
+        .argument::<usize>("INT");
 
     let height = short('h')
         .long("height")
-        .help("Height of box (defaults to auto)")
-        .argument::<u32>("INT");
+        .help("Height of box, defaults to 0 (auto)")
+        .argument::<usize>("INT");
 
-    // let round = short('r')
-    //     .long("round")
-    //     .help("round corners of the box")
-    //     .switch()
-    //     .fallback(false);
+    let padding = short('p')
+        .long("padding")
+        .help("X padding (defaults to 2)")
+        .argument::<usize>("INT")
+        .fallback(2);
 
     construct!(HedgeOptions {
         box_type,
         width,
         height,
-        // round
+        padding,
     })
     .to_options()
     .descr("Wrap text in ASCII boxes")
